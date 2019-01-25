@@ -1,0 +1,7 @@
+/.vs/
+/packages/
+/SeleniumTestSample/bin/
+/SeleniumTestSample/obj/
+/SampleWebApp/bin/
+/SampleWebApp/obj/
+/TestResults/
