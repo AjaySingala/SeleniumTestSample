@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
+using System.Threading;
 
 namespace SeleniumTestSample
 {
@@ -27,8 +28,11 @@ namespace SeleniumTestSample
         public void TheBingSearchTest()
         {
             driver.Navigate().GoToUrl(appURL + "/");
+            Thread.Sleep(1000);
             driver.FindElement(By.Id("sb_form_q")).SendKeys("Azure Pipelines");
+            Thread.Sleep(1000);
             driver.FindElement(By.Id("sb_form_go")).Click();
+            Thread.Sleep(1500);
             //driver.FindElement(By.XPath("//ol[@id='b_results']/li/h2/a/strong[3]")).Click();
             Assert.IsTrue(driver.Title.Contains("Azure Pipelines - Bing"), "Verified title of the page");
         }
@@ -52,7 +56,7 @@ namespace SeleniumTestSample
         [TestInitialize()]
         public void SetupTest()
         {
-            appURL = "http://www.bing.com/";
+            appURL = "http://www.bing.com";
 
             string browser = "Chrome";
             switch (browser)
